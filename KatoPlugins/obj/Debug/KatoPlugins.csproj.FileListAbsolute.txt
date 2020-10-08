@@ -1,0 +1,6 @@
+C:\Users\fkato\source\repos\KatoPlugins\KatoPlugins\bin\KatoPlugins.dll
+C:\Users\fkato\source\repos\KatoPlugins\KatoPlugins\bin\KatoPlugins.pdb
+C:\Users\fkato\source\repos\KatoPlugins\KatoPlugins\obj\Debug\KatoPlugins.csprojAssemblyReference.cache
+C:\Users\fkato\source\repos\KatoPlugins\KatoPlugins\obj\Debug\KatoPlugins.csproj.CoreCompileInputs.cache
+C:\Users\fkato\source\repos\KatoPlugins\KatoPlugins\obj\Debug\KatoPlugins.dll
+C:\Users\fkato\source\repos\KatoPlugins\KatoPlugins\obj\Debug\KatoPlugins.pdb
