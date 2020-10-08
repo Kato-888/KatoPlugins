@@ -53,24 +53,12 @@ namespace KatoPlugins.Commands
             if (newboxcorners == null)
                 return Result.Failure;
 
-            /*
-            var docbox = doc.Objects.AddBox(basebox);          
-            ObjRef objref = new ObjRef(docbox);
-            var ud = objref.Geometry().UserData.Find(typeof(XClipBoxUserData)) as XClipBoxUserData;
-            if(ud == null)
-            {
-                ud = new XClipBoxUserData(bbox);
-                objref.Geometry().UserData.Add(ud);
-            }
-            */
-
-            //doc.Objects.Delete(docbox, true);
+            
 
             //make plane for box)
             Plane plane = new Plane(newboxcorners[0], newboxcorners[1], newboxcorners[3]);
 
             //gumball settings
-
             var X_plus_go = new GumballObject();
             var X_minus_go = new GumballObject();
             var Y_plus_go = new GumballObject();
@@ -93,36 +81,7 @@ namespace KatoPlugins.Commands
             var Z_minus_gas = ZMinusGumballAppearanceSettings();
 
 
-            //from GH clipping plane sample
-            /*
-            RhinoView[] viewsList = doc.Views.GetViewList(true, true);
-
-            RhinoList<string> availableViews = new RhinoList<string>();
-
-            string viewP = "";
-
-            int index = 0;  //0= perspective view, 1 = top, 2 = Front, 3 = Right,
-
-            for (int i = 0; i < viewsList.Length; i++)
-            {
-                Rhino.Display.RhinoView rview = viewsList[i];
-                availableViews.Add(rview.ActiveViewport.Name);
-                if (i == index) //Which view affects the clipping plane
-                {
-                    viewP = rview.ActiveViewport.Name;
-                    rv = rview.ActiveViewport;
-                    viewPortID = rview.ActiveViewportID;
-                }
-            }
-
-            for (int i = 0; i < availableViews.Count; i++)
-            {
-                RhinoApp.WriteLine("{0} = {1}", i.ToString(), availableViews[i].ToString());
-            }
-
-            int removed = 0; //This number means for the number of clipping planes were supposed to be purged 
-                             //MyFunctions.PurgeClipPlane(rv, ref removed);
-            */
+            //This is flexible box 
             ClipGumballBox New_box;
 
             if (m_draw_clipping_planes == null)
@@ -194,8 +153,6 @@ namespace KatoPlugins.Commands
                     var new_points = New_box.CornerPoints;
                     New_box = new ClipGumballBox(plane, new_points);
 
-                    //MyFunctions.PurgeClipPlane(rv, ref removed); //???
-                    //New_CP = new ClippingPlaneBox(New_box, doc, viewPortID);
                     m_draw_clipping_planes.Enabled = false;
                     m_draw_clipping_planes = gx.m_plain;
                     m_draw_clipping_planes.Enabled = true;

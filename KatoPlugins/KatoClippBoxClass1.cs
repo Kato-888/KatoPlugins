@@ -223,7 +223,6 @@ namespace KatoPlugins
         {
 
             if (null != m_brep)
-                //display.DrawBrepWires(m_brep, Rhino.ApplicationSettings.AppearanceSettings.FeedbackColor);
                 display.DrawBox(m_box, Color.BlueViolet);
         }
 
@@ -286,16 +285,14 @@ namespace KatoPlugins
         private DrawClippingPlanesConduit m_clipping_plane;
 
         private Point3d m_base_origin;
-        private Point3d m_base_point;
-        private RhinoViewport m_rv;
-        //private int m_removed;
+        private Point3d m_base_point;      
         public RhinoDoc m_doc;
-        //public Guid ViewID;
+        
 
-        public ClipGumballBoxGetPoint(ClipGumballBox Box, RhinoDoc doc,/* Guid viewPortID,*/ DrawClippingPlanesConduit m_draw_clipping_plane,
+        public ClipGumballBoxGetPoint(ClipGumballBox Box, RhinoDoc doc, DrawClippingPlanesConduit m_draw_clipping_plane,
             GumballDisplayConduit X_plus, GumballDisplayConduit X_minus,
             GumballDisplayConduit Y_plus, GumballDisplayConduit Y_minus,
-            GumballDisplayConduit Z_plus, GumballDisplayConduit Z_minus/*, RhinoViewport rv, ref int removed*/)
+            GumballDisplayConduit Z_plus, GumballDisplayConduit Z_minus)
         {
             m_Box = Box;
             x_height_plus_dc = X_plus;
@@ -310,11 +307,9 @@ namespace KatoPlugins
 
             m_base_origin = Point3d.Unset;
             m_base_point = Point3d.Unset;
-            //m_rv = rv;
-            //m_removed = removed;
 
             m_doc = doc;
-            //ViewID = viewPortID;
+
         }
 
         public DrawClippingPlanesConduit m_plain
@@ -595,7 +590,7 @@ namespace KatoPlugins
             // Disable default GetPoint drawing by not calling the base class
             // implementation. All aspects of gumball display are handled by 
             // GumballDisplayConduit
-            //base.OnDynamicDraw(e);
+            
         }
 
         public GetResult MoveGumball()
